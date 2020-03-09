@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item" id="cartItem">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+
+                          
+                           <button class="btn btn-default" id="minusBtn" ><i class="fas fa-minus" ></i></button>
+                           <input type="text" class="form-control text-center" id="Input"value="1">
+                           <button class="btn btn-default" id="plusBtn"><i class="fas fa-plus"></i></button>
+
+
+                        </div>
+                        <h5 >$<span id="amount">1219</span></h5>
+                        <img src="images/remove.png" id="hide-item" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item" id="cartItem1">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button class="btn btn-default" id="minusBtn2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" id="Input2" value="1">
+                           <button class="btn btn-default" id="plusBtn2"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$<span id="amount2">59</span></h5>
+                        <img src="images/remove.png" id="hide-item1"alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$<span id="subtotal">1,278</span></h5>
+                        <h5>$<span id="tax">10</span></h5>
+                        <h5>$<span id="total">1,268</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out" id="checkNow">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+
+
+      <script>
+         const minusbtn=document.getElementById("minusBtn");
+         minusbtn.addEventListener("click",function(){
+            const minusinput=document.getElementById("Input").value;
+            const minusinputNumber=parseFloat(minusinput);
+            const value=1; 
+            const currentNumber=minusinputNumber-value;
+            const phoneValue=1219;
+            const currentamount=(currentNumber)*phoneValue;
+            
+            document.getElementById("Input").value=currentNumber;
+            document.getElementById("amount").innerText=currentamount;
+            
+                     
+         })
+         const plusbtn=document.getElementById("plusBtn");
+         plusbtn.addEventListener("click",function(){
+            const plusinput=document.getElementById("Input").value;
+            const plusinputNumber=parseFloat(plusinput);
+            const value=1;
+            const currentNumber=plusinputNumber+value;
+
+            const phoneValue=1219;
+            const currentamount=(currentNumber)*phoneValue;
+            document.getElementById("Input").value=currentNumber;
+            document.getElementById("amount").innerText=currentamount;
+         })
+          
+          const minusbtn2=document.getElementById("minusBtn2");
+         minusbtn2.addEventListener("click",function(){
+            const minusinput2=document.getElementById("Input2").value;
+            const minusinputNumber2=parseFloat(minusinput2);
+            const value=1; 
+            const currentNumber2=minusinputNumber2-value;
+            const phoneValue2=59;
+            const currentamount2=(currentNumber2)*phoneValue2;
+            
+            document.getElementById("Input2").value=currentNumber2;
+            document.getElementById("amount2").innerText=currentamount2;
+                     
+         })
+
+         const plusbtn2=document.getElementById("plusBtn2");
+         plusbtn2.addEventListener("click",function(){
+            const plusinput2=document.getElementById("Input2").value;
+            const plusinputNumber2=parseFloat(plusinput2);
+            const value=1;
+            const currentNumber2=plusinputNumber2+value;
+
+            const phoneValue2=59;
+            const currentamount2=(currentNumber2)*phoneValue2;
+            document.getElementById("Input2").value=currentNumber2;
+            document.getElementById("amount2").innerText=currentamount2;
+         })
+
+         const hideItem=document.getElementById("hide-item");
+         hideItem.addEventListener("click",function(){
+            document.getElementById("cartItem").style.display="none";
+         })
+
+          const hideItem1=document.getElementById("hide-item1");
+         hideItem1.addEventListener("click",function(){
+            document.getElementById("cartItem1").style.display="none";
+         })
+
+         
+         const checkNow=document.getElementById("checkNow");
+         checkNow.addEventListener("click",function(){
+            const firstamount=document.getElementById("amount").innerText;
+            const firstamountNumber=parseFloat(firstamount);
+            const secondamount=document.getElementById("amount2").innerText;
+            const secondamountNumber=parseFloat(secondamount);
+            const subtotal=firstamountNumber+secondamountNumber;
+            document.getElementById("subtotal").innerText=subtotal;
+
+            const tax=10;
+            const total=subtotal-tax;
+            document.getElementById("total").innerText=total;
+         })
+          
+          
+      </script>
+</body>
+
+</html>
